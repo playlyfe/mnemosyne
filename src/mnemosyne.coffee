@@ -84,7 +84,7 @@ class Mnemosyne
               @output_buffer.push "#{@color(level)} [#{colors.blue(@context.join(':'))}] #{msg}"
 
           if @timer is null
-            @timer = setTimeout(@_flush, @flush_interval, @)
+            @timer = setTimeout(@_flush, @flush_interval)
 
     if @buffer.length > @limit * 1.25
       @buffer = @buffer.slice(@limit * 1.25)
@@ -111,14 +111,15 @@ class Mnemosyne
     else
       @output_buffer.push line
       if @timer is null
-        @timer = setTimeout(@_flush, @flush_interval, @)
+        @timer = setTimeout(@_flush, @flush_interval)
     return
 
-  _flush: (self) ->
-    for line in self.output_buffer
+  _flush: =>
+    for line in  @output_buffer
       console.log line
-    self.output_buffer.length = 0
-    self.timer = null
+    @output_buffer.length = 0
+    clearTimeout(@timer)
+    @timer = null
     return
 
   createChildLogger: (options) ->

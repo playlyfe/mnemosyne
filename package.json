@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "mkdir lib || true && ./node_modules/coffee-script/bin/coffee -o lib -c -b src/mnemosyne.coffee"
+    "prepublish": "mkdir -p lib && ./node_modules/coffee-script/bin/coffee -o lib -c -b src/mnemosyne.coffee"
   },
   "keywords": [
     "logging"
