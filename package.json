@@ -1,0 +1,21 @@
+{
+  "name": "mnemosyne",
+  "version": "0.1.0",
+  "description": "A simple logging library focused on enabling easier debugging of your nodejs applications during runtime.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "mkdir lib || true && ./node_modules/coffee-script/bin/coffee -o lib -c -b src/mnemosyne.coffee"
+  },
+  "keywords": [
+    "logging"
+  ],
+  "author": "Johny Jose <johny@playlyfe.com>",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.3"
+  }
+}
